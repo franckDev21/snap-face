@@ -1,10 +1,12 @@
-<div class="face-snap">
-  <h2>{{ faceSnap.title }}</h2>
-  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" class="face-snap__img" >
-  <p>Mise en ligne le : {{ faceSnap.createdDate }}</p>
-  <p>{{ faceSnap.description }}</p>
-  <p class="face-snap__footer">
-    <button (click)="onSnap()" class="face-snap__btn">{{ buttonText }}</button>
-    ⭐{{ faceSnap.snaps }}
+<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unSanp!' }">
+  <h2>{{ faceSnap.title | uppercase }}</h2>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" >
+  <p>Mise en ligne le : {{ faceSnap.createdDate | date: 'longDate' }}</p>
+  <p *ngIf="faceSnap.location">Localisation : {{ faceSnap.location | lowercase }}</p>
+  <p>{{ faceSnap.description | titlecase }}</p>
+  <p>{{ 650000000 | currency: 'XAF' }}</p>
+  <p>
+    <button (click)="onSnap()">{{ buttonText }}</button>
+    <span [ngStyle]="{ color: 'rgb(0,'+(faceSnap.snaps * 10)+',0)' }">⭐{{ faceSnap.snaps }}</span>
   </p>
 </div>
