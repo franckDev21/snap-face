@@ -1,0 +1,27 @@
+$primary : rgb(5, 107, 225);
+
+.face-snap{
+  padding: 1rem;
+  border-radius: .4rem;
+  border: 2.4px solid #333;
+  background-color: #eee;
+  max-width: 300px;
+  width: 100%;
+
+  &__img{
+    width: 100%;
+  }
+
+  &__footer{
+    margin-top: 0.4rem;
+  }
+
+  &__btn{
+    padding: .4rem .5rem;
+    background-color: $primary;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+}
